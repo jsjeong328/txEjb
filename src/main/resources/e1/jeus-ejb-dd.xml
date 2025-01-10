@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<jeus-ejb-dd xmlns="http://www.tmaxsoft.com/xml/ns/jeus">
+    <module-info>
+        <use-dynamic-proxy-for-ejb2>true</use-dynamic-proxy-for-ejb2>
+    </module-info>
+    <beanlist>
+        <jeus-bean>
+            <ejb-name>ejb1</ejb-name>
+            <export-name>ejb1</export-name>
+            <clustering>
+                <enable-clustering>true</enable-clustering>
+            </clustering>
+<!--            <export-iiop>-->
+<!--                <only-iiop>false</only-iiop>-->
+<!--            </export-iiop>-->
+        </jeus-bean>
+    </beanlist>
+</jeus-ejb-dd>
