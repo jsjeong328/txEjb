@@ -10,9 +10,9 @@
             <clustering>
                 <enable-clustering>true</enable-clustering>
             </clustering>
-<!--            <export-iiop>-->
-<!--                <only-iiop>false</only-iiop>-->
-<!--            </export-iiop>-->
+            <export-iiop>
+                <only-iiop>false</only-iiop>
+            </export-iiop>
         </jeus-bean>
     </beanlist>
 </jeus-ejb-dd>

@@ -7,12 +7,12 @@
         <jeus-bean>
             <ejb-name>ejb2</ejb-name>
             <export-name>ejb2</export-name>
-<!--            <clustering>-->
-<!--                <enable-clustering>true</enable-clustering>-->
-<!--            </clustering>-->
-<!--            <export-iiop>-->
-<!--                <only-iiop>false</only-iiop>-->
-<!--            </export-iiop>-->
+            <clustering>
+                <enable-clustering>true</enable-clustering>
+            </clustering>
+            <export-iiop>
+                <only-iiop>false</only-iiop>
+            </export-iiop>
         </jeus-bean>
     </beanlist>
 </jeus-ejb-dd>
