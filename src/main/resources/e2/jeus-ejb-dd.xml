@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <jeus-ejb-dd xmlns="http://www.tmaxsoft.com/xml/ns/jeus">
     <module-info>
-<!--        <use-dynamic-proxy-for-ejb2>true</use-dynamic-proxy-for-ejb2>-->
+        <use-dynamic-proxy-for-ejb2>true</use-dynamic-proxy-for-ejb2>
     </module-info>
     <beanlist>
         <jeus-bean>

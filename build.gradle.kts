@@ -69,3 +69,17 @@ tasks.register<Jar>("b2") {
 tasks.jar {
     enabled = false
 }
+
+tasks.register<Exec>("scp") {
+    group = "distribution"
+    description = "Copies outputs to the dev server via WSL scp."
+
+    // 빌드가 먼저 완료되어야 하므로 의존성 유지
+    dependsOn(tasks.named("war"), tasks.named("b1"), tasks.named("b2"))
+
+    // 윈도우 cmd 대신 wsl.exe를 직접 호출하여 리눅스 환경에서 scp를 수행하게 만듭니다.
+    // 프로젝트 경로를 WSL이 인식할 수 있도록 파싱합니다.
+    val projectDirWsl = projectDir.absolutePath.replace("\\", "/").replace("C:", "/mnt/c")
+
+    commandLine("wsl", "scp", "$projectDirWsl/build/libs/*", "dev:/home/jaesik_jeong/workspace/testApp/")
+}
