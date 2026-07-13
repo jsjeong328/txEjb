@@ -1,6 +1,6 @@
 package ejb1;
 
-import jakarta.ejb.EJBObject;
+import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 import java.util.HashMap;
 

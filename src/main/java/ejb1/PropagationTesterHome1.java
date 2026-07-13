@@ -1,8 +1,8 @@
 package ejb1;
 
-import jakarta.ejb.EJBHome;
+import javax.ejb.EJBHome;
 import java.rmi.RemoteException;
-import jakarta.ejb.CreateException;
+import javax.ejb.CreateException;
 
 /**
  * Created by LCC.

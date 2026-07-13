@@ -15,7 +15,7 @@ public class Caller {
             Hashtable<String, String> ht = new Hashtable<String, String>();
             ht.put(Context.INITIAL_CONTEXT_FACTORY, "jeus.jndi.JNSContextFactory");
             ht.put(Context.URL_PKG_PREFIXES, "jeus.jndi.jns.url");
-            ht.put(Context.PROVIDER_URL, "192.168.14.99:19736");
+            ht.put(Context.PROVIDER_URL, "172.21.200.85:22100");
             ht.put(Context.SECURITY_CREDENTIALS, "jeus");
             ht.put(Context.SECURITY_PRINCIPAL, "jeus");
             InitialContext ctx = new InitialContext(ht);

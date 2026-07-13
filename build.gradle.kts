@@ -5,7 +5,7 @@ plugins {
 
 group = "com.example"
 version = "1.0.0"
-java.sourceCompatibility = JavaVersion.VERSION_17
+java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
     mavenCentral()
@@ -13,9 +13,7 @@ repositories {
 
 dependencies {
     // WAR와 JAR에 필요한 의존성 추가 가능
-    implementation(files("/home/jsjeong/workspace/lib/jakarta.ejb-api-4.0.1.jar"))
-    implementation(files("/home/jsjeong/workspace/lib/jakarta.servlet-api-6.1.0.jar"))
-    implementation(files("/home/jsjeong/workspace/lib/jakarta.transaction-api.jar"))
+    providedCompile("javax:javaee-api:8.0.1")
 }
 
 // WAR 파일 생성 설정

@@ -8,9 +8,9 @@ import constants.PropagationConstants;
 import helper.PropagationHelper;
 import logging.Logger;
 
-import jakarta.ejb.EJBException;
-import jakarta.ejb.SessionBean;
-import jakarta.ejb.SessionContext;
+import javax.ejb.EJBException;
+import javax.ejb.SessionBean;
+import javax.ejb.SessionContext;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 import java.rmi.RemoteException;
@@ -99,7 +99,7 @@ public class PropagationTesterBean2 implements SessionBean {
                     helper.performEJBPropagation(PropagationConstants.EJB2, ejb2JNDIProviderURL,
                         ejb2JNDILookupParameter, ejbPropagationParameterMap, null);
                 }catch(Exception e){
-                    if (e instanceof jakarta.transaction.TransactionRolledbackException){
+                    if (e instanceof javax.transaction.TransactionRolledbackException){
                         System.out.println(">>>>>javax.transaction.TransactionRolledbackException<<<<<");
                     }/*else if(e instanceof org.omg.CORBA.TRANSACTION_ROLLEDBACK){
                         System.out.println(">>>>>org.omg.CORBA.TRANSACTION_ROLLEDBACK<<<<<");

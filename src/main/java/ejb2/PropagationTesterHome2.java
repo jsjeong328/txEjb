@@ -1,7 +1,7 @@
 package ejb2;
 
-import jakarta.ejb.CreateException;
-import jakarta.ejb.EJBHome;
+import javax.ejb.CreateException;
+import javax.ejb.EJBHome;
 import java.rmi.RemoteException;
 
 /**

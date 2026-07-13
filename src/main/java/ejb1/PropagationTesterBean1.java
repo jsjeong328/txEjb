@@ -8,9 +8,9 @@ import constants.PropagationConstants;
 import helper.PropagationHelper;
 import logging.Logger;
 
-import jakarta.ejb.EJBException;
-import jakarta.ejb.SessionBean;
-import jakarta.ejb.SessionContext;
+import javax.ejb.EJBException;
+import javax.ejb.SessionBean;
+import javax.ejb.SessionContext;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 import java.rmi.RemoteException;

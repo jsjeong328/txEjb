@@ -6,9 +6,9 @@ import logging.Logger;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import javax.sql.DataSource;
-import jakarta.transaction.UserTransaction;
+import javax.transaction.UserTransaction;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.util.ArrayList;
