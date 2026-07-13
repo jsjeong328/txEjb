@@ -82,4 +82,5 @@ tasks.register<Exec>("scp") {
     val projectDirWsl = projectDir.absolutePath.replace("\\", "/").replace("C:", "/mnt/c")
 
     commandLine("wsl", "scp", "$projectDirWsl/build/libs/*", "dev:/home/jaesik_jeong/workspace/testApp/")
+    commandLine("wsl", "scp", "$projectDirWsl/build/libs/*", "dev:/home/jaesik_jeong/jeus_repo/jeus21/target/jeus/domains/domain1/lib/application")
 }
