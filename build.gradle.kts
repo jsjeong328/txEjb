@@ -5,17 +5,17 @@ plugins {
 
 group = "com.example"
 version = "1.0.0"
-java.sourceCompatibility = JavaVersion.VERSION_17
+java.sourceCompatibility = JavaVersion.VERSION_21
+java.targetCompatibility = JavaVersion.VERSION_21
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    // WAR와 JAR에 필요한 의존성 추가 가능
-    implementation(files("/home/jsjeong/workspace/lib/jakarta.ejb-api-4.0.1.jar"))
-    implementation(files("/home/jsjeong/workspace/lib/jakarta.servlet-api-6.1.0.jar"))
-    implementation(files("/home/jsjeong/workspace/lib/jakarta.transaction-api.jar"))
+    implementation("jakarta.servlet:jakarta.servlet-api:6.1.0")
+    implementation("jakarta.ejb:jakarta.ejb-api:4.0.1")
+    implementation("jakarta.transaction:jakarta.transaction-api:2.0.1")
 }
 
 // WAR 파일 생성 설정
@@ -42,7 +42,7 @@ tasks.register<Jar>("b1") {
     // b1.xml 파일 META-INF에 추가
     from("src/main/resources/e1") {
         include("ejb-jar.xml", "jeus-ejb-dd.xml", "weblogic-ejb-jar.xml")
-        into("META-INF") // b1.xml을 META-INF 디렉토리에 넣음
+        into("META-INF") // META-INF 디렉토리에 넣음
     }
 }
 
@@ -60,14 +60,19 @@ tasks.register<Jar>("b2") {
         include("logging/*")
     }
 
-    // b1.xml 파일 META-INF에 추가
+    // b2 관련 파일 META-INF에 추가
     from("src/main/resources/e2") {
         include("ejb-jar.xml", "jeus-ejb-dd.xml", "weblogic-ejb-jar.xml")
-        into("META-INF") // b1.xml을 META-INF 디렉토리에 넣음
+        into("META-INF") // META-INF 디렉토리에 넣음
     }
 }
 
-// Main jar task 비활성화 (필요한 경우)
+// Main jar task 비활성화
 tasks.jar {
     enabled = false
+}
+
+// build 실행 시 b1, b2 태스크가 함께 동작하도록 연결
+tasks.named("build") {
+    dependsOn("b1", "b2")
 }
