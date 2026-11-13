@@ -10,8 +10,10 @@ plugins {
     war  // WAR 파일 생성을 위한 플러그인
 }
 
-group = "com.example"
-version = "1.0.0"
+// properties 파일에서 값 읽어오기 (기본값 설정 가능)
+group = findProperty("projectGroup").toString()
+version = findProperty("projectVersion").toString()
+
 java.sourceCompatibility = JavaVersion.VERSION_21
 java.targetCompatibility = JavaVersion.VERSION_21
 
@@ -86,15 +88,21 @@ val currentProjectName = rootProject.name
 tasks.register("upload") {
     dependsOn("build") // 업로드 전 빌드를 선행 수행합니다.
 
+    // 💡 project.를 붙여서 프로젝트 레벨의 gradle.properties 값을 안전하게 읽어옵니다.
+    val remoteHost = project.property("dev.remoteHost").toString()
+    val remotePort = project.property("dev.remotePort").toString().toInt()
+    val remoteUser = project.property("dev.remoteUser").toString()
+
+    // 시스템 홈 디렉토리 기반 개인키 경로 조합
+    val userHome = System.getProperty("user.home").replace("\\", "/")
+    val privateKeyPath = "$userHome/.ssh/id_ed25519"
+
+    val baseRemoteDir = project.property("dev.remoteDir").toString()
+    val remoteDir = "$baseRemoteDir$currentProjectName/"
+
+    val buildLibsDir = layout.buildDirectory.dir("libs").get().asFile
+
     doLast {
-        val remoteHost = "172.21.200.85"
-        val remotePort = 22
-        val remoteUser = "jaesik_jeong"
-        val privateKeyPath = "C:/Users/정재식(JeongJaesik)/.ssh/id_ed25519"
-
-        val remoteDir = "/home/jaesik_jeong/workspace/testApp/$currentProjectName/"
-        val buildLibsDir = layout.buildDirectory.dir("libs").get().asFile
-
         println("=== 개발서버로 결과물 SCP 업로드 시작 ($remoteHost -> $remoteDir) ===")
 
         val jsch = com.jcraft.jsch.JSch()
